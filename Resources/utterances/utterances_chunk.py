@@ -10,7 +10,7 @@ from langchain_text_splitters import (
 # =========================
 # 配置（按需修改）
 # =========================
-MD_FILE = "Resources/utterances/utterances.md"
+MD_FILE = "Resources/utterances/utterances_wo_toc.md"
 OUT_JSONL = "Resources/utterances/utterances_chunks.jsonl"
 HEADERS = [("#","h1"),("##","h2"),("###","h3")]
 CHUNK_SIZE = 800

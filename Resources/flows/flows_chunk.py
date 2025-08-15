@@ -10,7 +10,7 @@ from langchain_text_splitters import (
 # =========================
 # 配置（按需修改）
 # =========================
-MD_FILE = "Resources/flows/flows.md"
+MD_FILE = "Resources/flows/flows_wo_toc.md"
 OUT_JSONL = "Resources/flows/flows_chunks.jsonl"
 HEADERS = [("#","h1"),("##","h2"),("###","h3")]
 CHUNK_SIZE = 1200
