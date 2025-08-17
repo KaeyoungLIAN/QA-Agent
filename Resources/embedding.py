@@ -141,11 +141,11 @@ def main():
     save_sidecar_meta(all_chunks, meta_path)
     print(f"✅ 元数据已保存：{meta_path}")
 
-    print("\n—— 检索 Demo ——")
-    index2 = faiss.read_index(faiss_path)
-    meta2 = load_sidecar_meta(meta_path)
-    demo_search("查询订单状态 怎么说？", index2, meta2, model_path, TOP_K)
-    demo_search("申请退货的流程是什么？", index2, meta2, model_path, TOP_K)
+    # print("\n—— 检索 Demo ——")
+    # index2 = faiss.read_index(faiss_path)
+    # meta2 = load_sidecar_meta(meta_path)
+    # demo_search("查询订单状态 怎么说？", index2, meta2, model_path, TOP_K)
+    # demo_search("申请退货的流程是什么？", index2, meta2, model_path, TOP_K)
 
 
 if __name__ == "__main__":
