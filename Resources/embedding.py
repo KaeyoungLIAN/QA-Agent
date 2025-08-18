@@ -91,21 +91,21 @@ def load_sidecar_meta(path: str) -> List[Dict[str, Any]]:
     return [json.loads(line) for line in open(path, "r", encoding="utf-8")]
 
 
-def demo_search(query: str, index: faiss.Index, meta: List[Dict[str, Any]], model_path: str, top_k: int):
-    model = SentenceTransformer(model_path)
-    q = model.encode([query], normalize_embeddings=True)
-    scores, ids = index.search(np.asarray(q, dtype="float32"), top_k)
-    print(f"\n🔎 Query: {query}")
-    for rank, (i, s) in enumerate(zip(ids[0], scores[0]), start=1):
-        if i == -1:
-            continue
-        item = meta[i]
-        ns = item["metadata"].get("namespace")
-        sec = item["metadata"].get("section_path", "")
-        src = item["metadata"].get("source", "")
-        preview = item["text"][:200].replace("\n", " ")
-        print(f"{rank:>2}. [score={s:.4f}] [{ns}] {src} | {sec}")
-        print(f"    {preview}{'...' if len(item['text'])>200 else ''}")
+# def demo_search(query: str, index: faiss.Index, meta: List[Dict[str, Any]], model_path: str, top_k: int):
+#     model = SentenceTransformer(model_path)
+#     q = model.encode([query], normalize_embeddings=True)
+#     scores, ids = index.search(np.asarray(q, dtype="float32"), top_k)
+#     print(f"\n🔎 Query: {query}")
+#     for rank, (i, s) in enumerate(zip(ids[0], scores[0]), start=1):
+#         if i == -1:
+#             continue
+#         item = meta[i]
+#         ns = item["metadata"].get("namespace")
+#         sec = item["metadata"].get("section_path", "")
+#         src = item["metadata"].get("source", "")
+#         preview = item["text"][:200].replace("\n", " ")
+#         print(f"{rank:>2}. [score={s:.4f}] [{ns}] {src} | {sec}")
+#         print(f"    {preview}{'...' if len(item['text'])>200 else ''}")
 
 
 # =========================
